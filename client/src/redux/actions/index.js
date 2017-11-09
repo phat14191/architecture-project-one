@@ -1,6 +1,8 @@
-import { addWord, deleteWord } from './words';
-
+import { addWord, deleteWord, toggleWord, setWords, toggleIsShowForm } from './words';
 export const words = {
   addWord,
-  deleteWord
+  deleteWord,
+  toggleIsShowForm,
+  toggleWord,
+  setWords
 }

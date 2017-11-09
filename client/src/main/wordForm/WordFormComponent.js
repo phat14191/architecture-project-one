@@ -15,9 +15,12 @@ function WordFormComponent(props) {
     border: "2px solid #DC143C",
     marginBottom: "5px"
   }
+
+  const styleForm = props.isShowForm ? {} : {display: "none"};
+
   return (
     <div style={center} >
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={props.handleSubmit} style={ styleForm }>
         <input
           onChange={props.handleChange}
           name="txtEn"
@@ -39,7 +42,7 @@ function WordFormComponent(props) {
 
         <button style={button} type="submit" className="btn">Add new word</button>
       </form>
-        <button style={button} className="btn">Cancel</button>
+        <button onClick={props.handleCancel} style={button} className="btn">{ props.isShowForm ? 'Cancel' : 'Show' }</button>
     </div>
   )
 }

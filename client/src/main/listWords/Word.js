@@ -24,15 +24,20 @@ function Word(props) {
     borderRadius: "8px",
     color: "white"
   }
+
+  const font = {
+    fontWeight: 600	
+  }
+
   const color = props.word.isMemorized ? 'green' : 'red';
   return (
     <div style={cardStyles}>
-      <p style={{color}}>Enlish: {props.word.txtEn}</p>
-      <p>Vietnamese: {props.word.txtVn}</p>
-      <button style={button} onClick={() => {props.deleteWord(props.index)}}>Remove</button>
-      <button style={button} >Toggle</button>
+      <p style={{ color, fontWeight: "600", fontFamily: "Chalkduster, fantasy"}}>English: {props.word.en}</p>
+      <p style={{ fontFamily: "Marker Felt, fantasy"}}>Vietnamese: {props.word.vn}</p>
+      <button style={button} onClick={() => {props.deleteWord(props.word._id, props.index)}}>Remove</button>
+      <button onClick={() => props.toggleWord(props.word._id, props.word, props.index)} style={button} >{props.word.isMemorized ? 'Memorized' : 'Learning'}</button>
     </div>
   )
 }
 
-export default connect(null, words)(Word);
+export default Word;
